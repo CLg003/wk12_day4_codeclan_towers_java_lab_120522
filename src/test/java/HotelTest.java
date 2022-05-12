@@ -3,6 +3,7 @@ import hotel.Guest;
 import hotel.Hotel;
 import hotel.rooms.Bedroom;
 import hotel.rooms.ConferenceRoom;
+import hotel.rooms.DiningRoom;
 import hotel.rooms.RoomType;
 import org.junit.Before;
 import org.junit.Test;
@@ -19,6 +20,8 @@ public class HotelTest {
     ConferenceRoom conferenceRoom2;
     Guest guest1;
     Guest guest2;
+    DiningRoom diningRoom1;
+    DiningRoom diningRoom2;
 
 
     @Before
@@ -31,6 +34,8 @@ public class HotelTest {
         conferenceRoom2 = new ConferenceRoom(500, "Ballroom", false);
         guest1 = new Guest("Graeme");
         guest2 = new Guest("Jack");
+        diningRoom1 = new DiningRoom(25, "Lochside Restaurant");
+        diningRoom2 = new DiningRoom(40, "Lounge Bar");
     }
 
     @Test
@@ -75,5 +80,17 @@ public class HotelTest {
         Booking booking = hotel.bookRoom(bedroom1, 2);
         assertEquals(2, booking.getNumberOfNights());
         assertEquals(bedroom1, booking.getBedroom());
+    }
+
+    @Test
+    public void hotelHasEmptyHashMapOfDiningRooms(){
+        assertEquals(0, hotel.getNumberOfDiningRooms());
+    }
+
+    @Test
+    public void canAddDiningRoomsToHashMap(){
+        hotel.addDiningRoom(diningRoom1);
+        hotel.addDiningRoom(diningRoom2);
+        assertEquals(2, hotel.getNumberOfDiningRooms());
     }
 }
