@@ -48,9 +48,9 @@ public class Hotel {
         return diningRooms.size();
     }
 
-    public void checkInGuestToRoom(Room room, Guest guest){
-        if (room.getNumberOfGuests() < room.getCapacity()){
-            room.addGuestToRoom(guest);
+    public void checkInGuestToRoom(Bedroom bedroom, Guest guest){
+        if (bedroom.getNumberOfGuests() == 0){
+            bedroom.addGuestToRoom(guest);
         }
     }
 
