@@ -69,4 +69,14 @@ public class Hotel {
         diningRooms.put(diningRoom.getName(), diningRoom);
     }
 
+    public ArrayList<Bedroom> getVacantBedrooms() {
+        ArrayList<Bedroom> vacantBedrooms = new ArrayList<>();
+        for (Bedroom bedroom: bedrooms) {
+            if (bedroom.getNumberOfGuests() == 0) {
+                vacantBedrooms.add(bedroom);
+            }
+        }
+        return vacantBedrooms;
+    }
+
 }

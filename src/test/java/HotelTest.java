@@ -93,4 +93,15 @@ public class HotelTest {
         hotel.addDiningRoom(diningRoom2);
         assertEquals(2, hotel.getNumberOfDiningRooms());
     }
+
+    @Test
+    public void canReturnVacantBedrooms(){
+        hotel.addBedroom(bedroom1);
+        hotel.addBedroom(bedroom2);
+        hotel.addBedroom(bedroom3);
+        hotel.checkInGuestToRoom(bedroom1, guest1);
+        hotel.checkInGuestToRoom(bedroom3, guest2);
+        assertEquals(1, hotel.getVacantBedrooms().size());
+        assertEquals(true, hotel.getVacantBedrooms().contains(bedroom2));
+    }
 }
