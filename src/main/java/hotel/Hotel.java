@@ -51,4 +51,10 @@ public class Hotel {
             room.removeGuestFromRoom(guest);
         }
     }
+
+    public Booking createBooking(Bedroom bedroom, int numberOfNights){
+            Booking booking = new Booking(bedroom, numberOfNights);
+            return booking;
+    }
+
 }
