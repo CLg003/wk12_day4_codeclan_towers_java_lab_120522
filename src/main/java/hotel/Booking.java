@@ -27,4 +27,8 @@ public class Booking {
     public void setNumberOfNights(int numberOfNights) {
         this.numberOfNights = numberOfNights;
     }
+
+    public double calculateTotalBill(){
+        return numberOfNights * bedroom.getNightlyRate();
+    }
 }

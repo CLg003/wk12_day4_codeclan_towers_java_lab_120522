@@ -52,7 +52,7 @@ public class Hotel {
         }
     }
 
-    public Booking createBooking(Bedroom bedroom, int numberOfNights){
+    public Booking bookRoom(Bedroom bedroom, int numberOfNights){
             Booking booking = new Booking(bedroom, numberOfNights);
             return booking;
     }
