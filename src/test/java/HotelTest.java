@@ -1,4 +1,5 @@
 import hotel.Booking;
+import hotel.Day;
 import hotel.Guest;
 import hotel.Hotel;
 import hotel.rooms.Bedroom;
@@ -110,5 +111,16 @@ public class HotelTest {
         hotel.checkInGuestToRoom(bedroom3, guest2);
         assertEquals(1, hotel.getVacantBedrooms().size());
         assertEquals(true, hotel.getVacantBedrooms().contains(bedroom2));
+    }
+
+    @Test
+    public void hotelStartsWithNoRestaurantReservations(){
+        assertEquals(0, hotel.getNumberOfRestaurantReservations());
+    }
+
+    @Test
+    public void canMakeRestaurantReservation(){
+        hotel.createRestaurantReservation(diningRoom2, Day.FRIDAY, 20.00, guest1, 4);
+        assertEquals(1, hotel.getNumberOfRestaurantReservations());
     }
 }
