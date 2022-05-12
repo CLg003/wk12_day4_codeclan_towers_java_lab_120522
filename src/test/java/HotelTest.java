@@ -1,3 +1,4 @@
+import hotel.Guest;
 import hotel.Hotel;
 import hotel.rooms.Bedroom;
 import hotel.rooms.ConferenceRoom;
@@ -15,6 +16,7 @@ public class HotelTest {
     Bedroom bedroom3;
     ConferenceRoom conferenceRoom1;
     ConferenceRoom conferenceRoom2;
+    Guest guest1;
 
 
     @Before
@@ -25,6 +27,7 @@ public class HotelTest {
         bedroom3 = new Bedroom(4, 3, RoomType.FAMILY);
         conferenceRoom1 = new ConferenceRoom(10, "Boardroom", true);
         conferenceRoom2 = new ConferenceRoom(500, "Ballroom", false);
+        guest1 = new Guest("Graeme");
     }
 
     @Test
@@ -47,5 +50,11 @@ public class HotelTest {
     public void canAddConferenceRooms(){
         hotel.addConferenceRoom(conferenceRoom1);
         assertEquals(1, hotel.getNumberOfConferenceRooms());
+    }
+
+    @Test
+    public void canCheckGuestsIntoRooms(){
+        hotel.checkInGuestToRoom(bedroom1, guest1);
+        assertEquals(1, bedroom1.getNumberOfGuests());
     }
 }
