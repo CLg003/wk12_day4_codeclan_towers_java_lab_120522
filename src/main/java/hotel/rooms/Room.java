@@ -30,4 +30,8 @@ public abstract class Room {
         guests.add(guest);
     }
 
+    public void removeGuestFromRoom(Guest guest){
+        guests.remove(guest);
+    }
+
 }

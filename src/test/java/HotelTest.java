@@ -17,6 +17,7 @@ public class HotelTest {
     ConferenceRoom conferenceRoom1;
     ConferenceRoom conferenceRoom2;
     Guest guest1;
+    Guest guest2;
 
 
     @Before
@@ -28,6 +29,7 @@ public class HotelTest {
         conferenceRoom1 = new ConferenceRoom(10, "Boardroom", true);
         conferenceRoom2 = new ConferenceRoom(500, "Ballroom", false);
         guest1 = new Guest("Graeme");
+        guest2 = new Guest("Jack");
     }
 
     @Test
@@ -56,5 +58,13 @@ public class HotelTest {
     public void canCheckGuestsIntoRooms(){
         hotel.checkInGuestToRoom(bedroom1, guest1);
         assertEquals(1, bedroom1.getNumberOfGuests());
+    }
+
+    @Test
+    public void canCheckGuestsOutOfRooms(){
+        hotel.checkInGuestToRoom(conferenceRoom1, guest1);
+        hotel.checkInGuestToRoom(conferenceRoom1, guest2);
+        hotel.checkOutGuestFromRoom(conferenceRoom1, guest1);
+        assertEquals(1, conferenceRoom1.getNumberOfGuests());
     }
 }

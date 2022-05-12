@@ -45,4 +45,10 @@ public class Hotel {
             room.addGuestToRoom(guest);
         }
     }
+
+    public void checkOutGuestFromRoom(Room room, Guest guest){
+        if (room.getGuests().contains(guest)){
+            room.removeGuestFromRoom(guest);
+        }
+    }
 }
